@@ -1,0 +1,49 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">  
+<hibernate-mapping package="cn.edu.zucc.personplan.model">  
+    
+    <class name="BeanPlan" table="BeanPlan">  
+        <!-- 主键的设置,generator标识主键生成方式,因为native便于数据库的移植所以.嘿嘿!你懂的 -->  
+        <id name="plan_id" type="int">  
+            <column name="plan_id"/>  
+            <generator class="assigned"/>  
+        </id>  
+        <!-- 这里配了该类一个属性街道名称 name属性字段,column,数据库对应列 --> 
+        <property name="user_id" type="string" column="user_id" />   
+        <property name="plan_order" type="int" column="plan_order" />  
+        <property name="step_count" type="int" column="step_count" />  
+        <property name="plan_name" type="string" column="plan_name" />  
+        <property name="create_time" type="date" column="create_time" />  
+        <property name="start_step_count" type="int" column="start_step_count" />
+        <property name="finished_step_count" type="int" column="finished_step_count" />    
+    </class>    
+    
+    <class name="BeanStep" table="BeanStep">  
+        <!-- 主键的设置,generator标识主键生成方式,因为native便于数据库的移植所以.嘿嘿!你懂的 -->  
+        <id name="step_id" type="int">  
+            <column name="step_id"/>  
+            <generator class="assigned"/>  
+        </id>  
+        <!-- 这里配了该类一个属性街道名称 name属性字段,column,数据库对应列 -->  
+        <property name="plan_id" type="int" column="plan_id" />  
+        <property name="step_order" type="int" column="step_order" />  
+        <property name="step_name" type="string" column="step_name" />  
+        <property name="plan_begin_time" type="date" column="plan_begin_time" />  
+        <property name="plan_end_time" type="date" column="plan_end_time" /> 
+        <property name="real_begin_time" type="date" column="real_begin_time" />
+        <property name="real_end_time" type="date" column="real_end_time" />  
+    </class>  
+
+    <class name="BeanUser" table="BeanUser">  
+        <!-- 主键的设置,generator标识主键生成方式,因为native便于数据库的移植所以.嘿嘿!你懂的 -->  
+        <id name="user_id" type="string">  
+            <column name="user_id"/>  
+            <generator class="assigned"/>  
+        </id>  
+        <!-- 这里配了该类一个属性街道名称 name属性字段,column,数据库对应列 -->  
+        <property name="user_pwd" type="string" column="user_pwd" />  
+        <property name="register_time" type="date" column="register_time" />   
+    </class>
+
+
+
+</hibernate-mapping>  
